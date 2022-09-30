@@ -16,4 +16,4 @@ La aplicación no tiene como objetivo el soporte a navegadores antiguos por lo q
 
 ## Tamaño de la aplicación por página
 
-Cada página de la aplicación no supera los *500kb*.
+Cada página de la aplicación no supera los **500kb**.
