@@ -1,0 +1,274 @@
+:root {
+    --x-cells: 11;
+    --y-cells: 20;
+    --cell-width: 1rem;
+    --cell-height: 1rem;
+    --canvas-border: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+/**
+ * CONTROLS
+ */
+.controls {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    bottom: 1rem;
+}
+
+.controls :where(button, select) {
+    height: 1.5rem;
+    border: none;
+    background-color: #606060;
+    color: white;
+    padding: 0 .5rem;
+    outline: none;
+}
+.controls :where(button, select):hover {
+    background-color: #404040;
+}
+.controls :where(button, select):active {
+    background-color: #202020;
+}
+
+.controls button {
+    margin-left: .25rem;
+}
+
+.game-container :where(.btn-pause-game, .btn-new-game) {
+    display: none;
+}
+
+.game-container.playing :where(.btn-pause-game, .btn-new-game) {
+    display: block;
+}
+.game-container.playing :where(.cbxs-canvas-size, .cbx-difficult-game, .btn-start-game) {
+    display: none;
+}
+
+
+/**
+ * CONTROLS
+ */
+.game-modal {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.game-modal.game-modal-hidden {
+    display: none;
+}
+
+.game-modal .game-modal-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    background-color: white;
+}
+.game-modal.game-modal-md .game-modal-container {
+    max-width: 20rem;
+    width: calc(100% - 2rem);
+}
+
+.game-modal .game-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
+.game-modal .game-modal-header .game-modal-btn-close {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: #bbb;
+}
+.game-modal .game-modal-header .game-modal-btn-close:hover {
+    color: #9f9f9f;
+}
+.game-modal .game-modal-header .game-modal-btn-close:active {
+    color: gray;
+}
+
+.game-modal .game-modal-body {
+    margin: 1rem 0;
+}
+
+.game-modal .game-modal-footer {
+    display: flex;
+    justify-content: center;
+}
+.game-modal .game-modal-footer button {
+    font-size: .9rem;
+    column-gap: 1rem;
+    padding: .5rem 1rem;
+}
+.game-modal .game-modal-footer .game-modal-btn-close {
+    border: none;
+    background-color: lightgray;
+}
+.game-modal .game-modal-footer .game-modal-btn-close:hover {
+    background-color: #bbb;
+}
+.game-modal .game-modal-footer .game-modal-btn-close:active {
+    background-color: #9f9f9f;
+}
+
+
+/**
+ * CANVAS
+ */
+.canvas {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border: var(--canvas-border) solid gray;
+    box-sizing: content-box;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, .75);
+}
+.canvas.game-over::after {
+    content: "GAME OVER";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.canvas.pause::after {
+    content: "PAUSE";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.canvas .cell {
+    position: relative;
+    width: var(--cell-width);
+    height: var(--cell-height);
+}
+
+.canvas .starship {
+    background: purple;
+}
+
+.canvas .enemy {
+    background-color: blue;
+}
+
+.canvas .shot {
+    background-color: crimson;
+}
+
+.canvas .super-shot {
+    background-color: goldenrod;
+}
+
+.canvas .portal-shot {
+    background: url(../img/portal.png);
+    background-size: cover;
+}
+
+.canvas :where(.starship, .enemy, .shot, .super-shot, .portal-shot) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .75rem;
+    text-align: center;
+    font-family: Consolas;
+    color: white;
+}
+
+/**
+ * INFO
+ */
+.info {
+    font-size: .8rem;
+    width: 25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: -3.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info-energy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-energy .text-info {
+    color: greenyellow;
+}
+
+.info-energy .value-info {
+    color: white;
+}
+
+
+/**
+ * ANIMACIONES
+ */
+.canvas.slowTime .cell:has(.enemy) {
+    -webkit-animation-name: slowTime;
+    animation-name: slowTime;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+}
+
+@-webkit-keyframes slowTime {
+    0% { opacity: .7; }
+    50% { opacity: .4; }
+    100% { opacity: .7; }
+}
+
+@keyframes slowTime {
+    0% { opacity: .7; }
+    50% { opacity: .4; }
+    100% { opacity: .7; }
+}

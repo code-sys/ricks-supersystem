@@ -1,0 +1,474 @@
+body {
+    background-image: url(../img/paisaje-de-rick-y-morty_2560x1440_9415.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+/**
+ * HEADER
+ */
+ #header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6rem;
+    padding: 0 2rem;
+}
+#header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(1.5px);
+    backdrop-filter: blur(1.5px);
+}
+
+#header .logo {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--dark-blue);
+    text-shadow: 1px 0 0 var(--skyblue-200),
+                0 1px 0 var(--skyblue-200),
+                -1px 0 0 var(--skyblue-200),
+                0 -1px 0 var(--skyblue-200),
+                1px 1px 0 var(--skyblue-200);
+}
+
+#header nav {
+    display: flex;
+    column-gap: .5rem;
+}
+
+#header nav a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    color: var(--skyblue-200);
+    background-color: var(--skyblue-200-opacity);
+    border-radius: .25rem;
+    text-decoration: none;
+}
+#header nav a:hover {
+    background-color: var(--skyblue-200);
+    color: var(--dark-blue);
+}
+
+@media screen and (max-width: 30rem) {
+    #header .logo {
+        font-size: 1.25rem;
+        margin: 0 auto;
+    }
+
+    #header nav {
+        display: none;
+    }
+}
+
+/**
+ * FORM SEARCH
+ */
+.form-search {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 4rem);
+    margin: 2rem auto;
+    height: 3.25rem;
+    border-radius: .25rem;
+    box-sizing: border-box;
+    background-color: var(--dark-blue-200-opacity);
+}
+.form-search:hover {
+    background-color: var(--dark-blue-200-opacity-2);
+}
+
+.form-search .input {
+    width: 100%;
+    height: 3.25rem;
+    font-size: 1rem;
+    padding: 0 1rem 0 .3rem;
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-sizing: border-box;
+    outline: none;
+    background-color: transparent;
+    color: var(--green-25);
+    text-shadow: 0 1px 1px var(--green-800);
+}
+
+.form-search .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    padding: 0 1rem;
+    margin-right: .3rem;
+    border: none;
+    border-radius: .25rem;
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+    color: var(--skyblue-200);
+}
+.form-search .btn:active {
+    background-color: var(--dark-blue-100);
+}
+
+
+/**
+ * CHARACTERS
+ */
+.characters {
+    width: 90%;
+    margin: 0 auto 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.character {
+    width: 16rem;
+    height: 12rem;
+    position: relative;
+    padding: 0 2rem;
+    margin-top: 8rem;
+    box-sizing: border-box;
+    border: .2rem solid var(--green-25);
+    border-radius: .5rem;
+    background-image: url(../img/6863502.webp);
+    background-position: 0px -10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    transition: all .25s;
+    cursor: pointer;
+}
+.character:hover {
+    transform: scale(1.1);
+}
+
+.character .ch-img {
+    position: absolute;
+    left: 50%;
+    top: -9rem;
+    width: 9rem;
+    height: 9rem;
+    transform: translate(-50%, 50%);
+    box-sizing: border-box;
+    border: .25rem solid var(--green-25);
+    border-radius: 100%;
+    background-image: url(https://rickandmortyapi.com/api/character/avatar/58.jpeg);
+    background-size: cover;
+    background-color: var(--dark-blue);
+}
+
+.character .ch-body {
+    position: relative;
+    margin-top: 5rem;
+    padding-top: .75rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 8rem);
+    justify-content: center;
+}
+
+    .character .ch-body .ch-name {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: var(--green-25);
+        text-shadow: 1px 1px 0 var(--dark-blue);
+    }
+
+    .character .ch-body .ch-status {
+        color: var(--skyblue-200);
+        text-shadow: 1px 1px 0 var(--dark-blue);
+    }
+    .character .ch-body .ch-status.alive {
+        -webkit-animation-name: pulse;
+        animation-name: pulse;
+        animation-iteration-count: infinite;
+        animation-duration: .5s;
+        animation-timing-function: linear;
+    }
+    .character .ch-body .ch-status.dead {
+        text-decoration: line-through;
+        -webkit-animation-name: swing;
+        animation-name: swing;
+        animation-iteration-count: infinite;
+        animation-duration: 2.5s;
+        -webkit-transform-origin: top center;
+        transform-origin: top center;
+    }
+    .character .ch-body .ch-status.unknown {
+        opacity: .5;
+    }
+
+
+/**
+ * CHARACTER DETAIL
+ */
+#character-detail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    overflow-y: auto;
+}
+#character-detail::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+#character-detail.hidden {
+    display: none;
+}
+
+#character-detail .cd-btn-close {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background-color: transparent;
+    font-size: 1.25rem;
+    line-height: 1;
+    padding: 0;
+    opacity: .25;
+}
+#character-detail .cd-btn-close:hover {
+    opacity: .5;
+}
+#character-detail .cd-btn-close:active {
+    opacity: 1;
+}
+
+#character-detail .cd-body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: calc(100% - 2rem);
+    box-sizing: border-box;
+}
+
+    #character-detail .cd-body {
+        text-align: center;
+    }
+    #character-detail .cd-body * {
+        color: var(--very-dark-blue);
+    }
+
+    #character-detail .cd-name {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    #character-detail .cd-status {
+        display: inline-block;
+        font-size: 1.25rem;
+        margin: .5rem 0;
+    }
+    #character-detail .cd-status.alive {
+        -webkit-animation-name: pulse;
+        animation-name: pulse;
+        animation-iteration-count: infinite;
+        animation-duration: .5s;
+        animation-timing-function: linear;
+    }
+    #character-detail .cd-status.dead {
+        text-decoration: line-through;
+        -webkit-animation-name: swing;
+        animation-name: swing;
+        animation-iteration-count: infinite;
+        animation-duration: 2.5s;
+        -webkit-transform-origin: top center;
+        transform-origin: top center;
+    }
+    #character-detail .cd-status.unknown {
+        opacity: .5;
+    }
+
+    #character-detail .cd-img {
+        margin: .5rem auto 2rem;
+        width: 13rem;
+        height: 13rem;
+        border: .25rem solid var(--very-dark-blue);
+        border-radius: .5rem;
+        background-color: var(--very-dark-blue);
+        background-size: cover;
+    }
+
+    #character-detail .cd-properties {
+        width: 100%;
+        box-sizing: border-box;
+        padding-bottom: 1rem;
+    }
+
+        #character-detail .cd-property-detail {
+            margin-bottom: 1rem;
+        }
+
+            #character-detail .cd-property-title  {
+                margin: 0;
+                padding-bottom: .1rem;
+                font-size: 1rem;
+            }
+
+            #character-detail .cd-property-text  {
+                margin: 0%;
+                padding: .25rem;
+                font-size: 1.1rem;
+            }
+
+            #character-detail .cd-property-episode  {
+                display: flex;
+                flex-direction: column;
+                text-decoration: none;
+                margin-top: 1rem;
+                padding: .25rem 0;
+            }
+
+            #character-detail .cd-p-episode-number  {
+                font-size: 1.25rem;
+            }
+
+            #character-detail .cd-p-episode-name,
+            #character-detail .cd-p-episode-date  {
+                font-size: 1rem;
+            }
+
+
+/**
+ * LOADING DATA
+ */
+.loading-data {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+}
+.loading-data.show {
+    display: block;
+}
+
+.loading-data .img-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10rem;
+}
+
+.loading-data img {
+    width: 100%;
+}
+
+
+/**
+ * ANIMATIONS
+ */
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.075, 1.075, 1.075);
+    transform: scale3d(1.075, 1.075, 1.075);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.075, 1.075, 1.075);
+    transform: scale3d(1.075, 1.075, 1.075);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+@-webkit-keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+@keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}

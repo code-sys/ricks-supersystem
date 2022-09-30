@@ -1,0 +1,164 @@
+:root {
+    --control-height: 2.5rem;
+    --control-width: var(--control-height);
+    --radius: .25rem;
+    --nbr-btn-to-show: 5;
+    --transition-time: .75s;
+    --pg-skyblue-200: #b7e4f9ff;
+    --pg-dark-blue: #24325fff;
+    --pg-very-dark-blue: #18213e;
+    --pg-light-very-dark-blue: #1e2946;
+    --pg-light-dark-blue: #2d3c68;
+}
+
+.pagination {
+    position: relative;
+    margin: 4rem auto;
+    display: flex;
+    width: fit-content;
+}
+
+/**************************
+ * CONTROLS
+ *************************/
+.pagination .control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--pg-skyblue-200);
+    height: var(--control-height);
+    width: var(--control-width);
+}
+
+.pagination .control.current-page {
+    position: relative;
+}
+
+.pagination .page-select .control.active {
+    background-color: var(--pg-skyblue-200) !important;
+    color: var(--pg-dark-blue);
+    pointer-events: none;
+}
+
+/* BACKGROUND */
+.pagination > .control {
+    background-color: var(--pg-very-dark-blue);
+}
+.pagination .page-select .control {
+    background-color: var(--pg-dark-blue);
+}
+
+.pagination > .control:hover {
+    background-color: var(--pg-light-very-dark-blue);
+}
+
+.pagination .page-select .control:hover {
+    background-color: var(--pg-light-dark-blue);
+}
+
+/* BORDER RADIUS */
+.pagination .control.prev-page {
+    border-top-left-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+}
+.pagination .control.next-page {
+    border-top-right-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+}
+
+.pagination.showing-page-select .control.prev-page {
+    border-top-left-radius: 0;
+}
+.pagination.showing-page-select .control.current-page::after {
+    content: '\02716';
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+    width: 100%;
+    height: 100%;
+}
+.pagination.showing-page-select .control.next-page {
+    border-top-right-radius: 0;
+}
+
+/* ARROWS */
+.pagination .control.prev-page::before,
+.pagination .control.next-page::before,
+.pagination .control.arrow-up::before,
+.pagination .control.arrow-down::before {
+    content: '';
+    width: 0;
+    height: 0;
+}
+
+.pagination .control.prev-page::before {
+    border-right: .4rem solid var(--pg-skyblue-200);
+    border-top: .4rem solid transparent;
+    border-bottom: .4rem solid transparent;
+}
+.pagination .control.next-page::before {
+    border-left: .4rem solid var(--pg-skyblue-200);
+    border-top: .4rem solid transparent;
+    border-bottom: .4rem solid transparent;
+}
+.pagination .control.arrow-up::before {
+    border-left: .4rem solid transparent;
+    border-right: .4rem solid transparent;
+    border-bottom: .4rem solid var(--pg-skyblue-200);
+}
+.pagination .control.arrow-down::before {
+    border-left: .4rem solid transparent;
+    border-right: .4rem solid transparent;
+    border-top: .4rem solid var(--pg-skyblue-200);
+}
+
+.pagination .control.prev-page.disabled,
+.pagination .control.next-page.disabled {
+    background-color: var(--pg-very-dark-blue);
+    cursor: default;
+}
+
+.pagination .control.arrow-up.disabled,
+.pagination .control.arrow-down.disabled {
+    background-color: var(--pg-dark-blue);
+    cursor: default;
+}
+
+.pagination .control.prev-page.disabled::before,
+.pagination .control.next-page.disabled::before,
+.pagination .control.arrow-up.disabled::before,
+.pagination .control.arrow-down.disabled::before {
+    opacity: .2;
+}
+
+/**************************
+ * PAGE SELECT
+ *************************/
+.pagination .page-select {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: calc(var(--control-width) * 3);
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+    overflow: hidden;
+    transition: all var(--transition-time);
+}
+
+.pagination .page-select .control {
+    width: 100%;
+}
+
+/**************************
+ * PAGE CONTAINER
+ *************************/
+.pagination .page-select .pages-container {
+    overflow-y: hidden;
+}
+
+.pagination .page-select .pages-container .pages-group {
+    transition: all var(--transition-time);
+}

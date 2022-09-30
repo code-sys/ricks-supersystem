@@ -1,0 +1,24 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.rotate {
+    animation-name: rotateAnimation;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotateAnimation {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(360deg) }
+}
+
+@keyframes rotateAnimation {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(360deg) }
+}

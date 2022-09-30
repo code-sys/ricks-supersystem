@@ -13,3 +13,7 @@ La forma de nombrar los colores no tienen nada que ver con ningún estandar/regl
 ## Soporte a navegadores antiguos
 
 La aplicación no tiene como objetivo el soporte a navegadores antiguos por lo que no usa usa [normalize.css](https://necolas.github.io/normalize.css/) u otro reseteador de CSS, y lo mismo es para JS por lo que no se usa [babeljs](https://babeljs.io/).
+
+## Tamaño de la aplicación por página
+
+Cada página de la aplicación no supera los *500kb*.

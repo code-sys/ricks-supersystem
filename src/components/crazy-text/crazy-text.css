@@ -1,0 +1,90 @@
+.animateCrazyText {
+    position: relative;
+    animation-iteration-count: infinite;
+}
+
+@keyframes crazyTextAnimation1 {
+    0%   {
+        top: 0px;
+    }
+    25%  {
+        top: -1px;
+    }
+    50%  {
+        top: 1px;
+    }
+    75%  {
+        top: -1px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+@keyframes crazyTextAnimation2 {
+    0%   {
+        top: 0px;
+    }
+    25%  {
+        top: -2px;
+    }
+    50%  {
+        top: 2px;
+    }
+    75%  {
+        top: -2px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+@keyframes crazyTextAnimation3 {
+    0%   {
+        top: 0px;
+    }
+    25%  {
+        top: -3px;
+    }
+    50%  {
+        top: 3px;
+    }
+    75%  {
+        top: -3px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+@keyframes crazyTextAnimation4 {
+    0%   {
+        top: 0px;
+    }
+    25%  {
+        top: -4px;
+    }
+    50%  {
+        top: 4px;
+    }
+    75%  {
+        top: -4px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+@keyframes crazyTextAnimation5 {
+    0%   {
+        top: 0px;
+    }
+    25%  {
+        top: -5px;
+    }
+    50%  {
+        top: 5px;
+    }
+    75%  {
+        top: -5px;
+    }
+    100% {
+        top: 0px;
+    }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characters</title>
+
+    <link rel="stylesheet" href="assets/characters/characters.min.css">
+    <script src="assets/characters/characters.min.js" defer></script>
+</head>
+<body>
+    <header id="header">
+        <a id="logo" href="./index.html" class="logo"></a>
+        <nav>
+            <a href="./pixel-war.html">PIXEL WAR</a>
+        </nav>
+    </header>
+    <main>
+        <div class="form-search">
+            <input id="txt-search" class="input" type="search" required>
+            <button id="btn-search" class="btn" type="button">Buscar</button>
+        </div>
+
+        <template id="character-template">
+            <article class="character">
+                <div class="ch-img"></div>
+                <div class="ch-body">
+                    <span class="ch-name">Toxic Rick</span>
+                    <span class="ch-status">Dead</span>
+                </div>
+            </article>
+        </template>
+
+        <section id="characters-container" class="characters"></section>
+        <div id="paginator"></div>
+    </main>
+
+    <div id="character-detail" class="hidden">
+        <button type="button" class="cd-btn-close">&#x2716;</button>
+        <div class="cd-body">
+            <h2 class="cd-name"></h2>
+            <span class="cd-status"></span>
+            <div class="cd-img"></div>
+            <div class="cd-properties"></div>
+        </div>
+    </div>
+
+    <div id="loading-characters" class="loading-data">
+        <div class="img-container">
+            <img class="rotate" src="./assets/img/portal.png" alt="Portal dimensional">
+        </div>
+    </div>
+</body>
+</html>
