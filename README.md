@@ -4,7 +4,7 @@ Aplicación web que consume parte del API de [rickandmortyapi](https://rickandmo
 
 También contiene un pequeño juego hecho con JS y HTML sin usar el API de Canvas, el juego no está destinado a funcionar en aplicaciones móviles.
 
-Puedes ver la aplicación en [example.com](www.example.com).
+[Puedes ver la aplicación aquí](https://rickssupersystem.000webhostapp.com/).
 
 ## Colores CSS como variables
 
