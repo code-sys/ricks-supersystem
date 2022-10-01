@@ -274,6 +274,7 @@ class PixelWar {
                     <strong>Ralentizar el tiempo:</strong> N<br>
                     <span style="font-size: .75rem;">
                         Aumenta el tiempo que le toma a tus enemigos moverse y aparecer.
+                        Usarlo varias veces aumenta el tiempo del efecto.
                     </span>
                 </li>
             </ul>
