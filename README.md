@@ -17,3 +17,11 @@ La aplicación no tiene como objetivo el soporte a navegadores antiguos por lo q
 ## Tamaño de la aplicación por página
 
 Cada página de la aplicación no supera los **500kb**.
+
+## Instalación
+
+Clonar el repositorio, ir a la carpeta raíz del proyecto, abrir la consola y ejecutar el comando `npm install`.
+
+## Desarrollo
+
+Ir a la carpeta raíz del proyecto, abrir la consola y ejecutar el comando `gulp`.
